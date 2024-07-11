@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+
+# Django
+*.sqlite3
+/media
+/staticfiles
+
+# Node modules
+node_modules/
+
+# Log files
+logs/
+*.log
+
+# Tailwind config
+tailwind.config.js
+postcss.config.js

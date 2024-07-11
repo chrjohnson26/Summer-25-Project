@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: gcr.io/my-news-aggregator-427220/app:v1
+        ports:
+        - containerPort: 8000
+        env:
+        - name: DJANGO_SETTINGS_MODULE
+          value: "myproject.settings"
+        - name: DATABASE_URL
+          value: "mysql://mydatabase:mypassword@/cloudsql/my-news-aggregator-427220:us-central1:my-mysql-instance:3306/mydatabase"
+        - name: DJANGO_SECRET_KEY
+          value: "3g6jok-z%ls(^&^k3n8q09=(*@70arncw$zch3b7=2k3+9&80l"
